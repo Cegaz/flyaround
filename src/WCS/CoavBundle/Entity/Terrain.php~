@@ -87,14 +87,11 @@ class Terrain
     private $country;
 
     /**
+     * @var string
+     *
      * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="departure")
      */
     private $departures;
-
-    /**
-     * @ORM\OneToMany(targetEntity="WCS\CoavBundle\Entity\Flight", mappedBy="arrival")
-     */
-    private $arrivals;
 
     /**
      * Get id
