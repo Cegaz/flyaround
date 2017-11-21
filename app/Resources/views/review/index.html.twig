@@ -1,5 +1,36 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-list of reviews...
+    <h1>Reviews list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Rated</th>
+            <th>Author</th>
+            <th>Text</th>
+            <th>Publication Date</th>
+            <th>Note</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for review in reviews %}
+            <tr>
+                <td>{{ review.id }}</td>
+                <td>{{ review.userRated }}</td>
+                <td>{{ review.reviewAuthor }}</td>
+                <td>{{ review.text }}</td>
+                <td>{% if review.publicationDate %}{{ review.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ review.note }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('review_new') }}">Create a new flight</a>
+        </li>
+    </ul>
 {% endblock %}
